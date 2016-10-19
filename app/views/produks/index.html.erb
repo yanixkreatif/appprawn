@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Produks</h1>
+<br>
+ 
+<%= link_to "cetak data produk",produks_path( :first_button => 'cetak'),:target=>'_blank' %>
+ 
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Stok</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produks.each do |produk| %>
+      <tr>
+        <td><%= produk.nama %></td>
+        <td><%= produk.stok %></td>
+        <td><%= link_to 'Show', produk %></td>
+        <td><%= link_to 'Edit', edit_produk_path(produk) %></td>
+        <td><%= link_to 'Destroy', produk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+ 
+<br>
+<%= link_to 'New Produk', new_produk_path %>
